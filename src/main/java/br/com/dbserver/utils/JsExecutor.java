@@ -1,5 +1,7 @@
 package br.com.dbserver.utils;
 
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.service.ExtentTestManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,9 +13,9 @@ public class JsExecutor {
         Boolean imagePresent = (Boolean) jse.executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", element);
         try {
             if (imagePresent) {
-                System.out.println("Image is displayed");
+                ExtentTestManager.getTest().log(Status.PASS,"Image is displayed");
             } else {
-                System.out.println("Image not displayed");
+                ExtentTestManager.getTest().log(Status.FAIL,"Image not displayed", Screenshot.capture());
             }
         } catch (Exception e) {
             System.out.println(e);
