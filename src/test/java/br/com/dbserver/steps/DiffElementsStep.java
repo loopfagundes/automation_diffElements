@@ -18,6 +18,7 @@ public class DiffElementsStep {
     public DiffElementsStep indexPage() {
         textArea();
         textBox();
+        radioButton();
         return this;
     }
 
@@ -54,6 +55,13 @@ public class DiffElementsStep {
         diffElements.textBoxFirstNameTextField().sendKeys(faker.name().firstName());
         diffElements.textBoxLastNameTextField().sendKeys(faker.name().lastName());
         diffElements.textBoxResetButton().click();
+        return this;
+    }
+
+    public DiffElementsStep radioButton() {
+        diffElements.radioButtonNoCheckBox().click();
+        diffElements.radioButtonYesCheckBox().click();
+        diffElements.radioButtonOtherCheckBox().click();
         return this;
     }
 }

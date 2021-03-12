@@ -29,4 +29,16 @@ public class DiffElementsPageObject {
     public WebElement textBoxResetButton() {
         return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > form:nth-child(13) > input[type=reset]:nth-child(9)"));
     }
+
+    public WebElement radioButtonNoCheckBox() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=radio]:nth-child(22)"));
+    }
+
+    public WebElement radioButtonYesCheckBox() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=radio]:nth-child(20)"));
+    }
+
+    public WebElement radioButtonOtherCheckBox() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=radio]:nth-child(24)"));
+    }
 }
