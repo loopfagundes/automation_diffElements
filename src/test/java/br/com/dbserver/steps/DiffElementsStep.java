@@ -2,7 +2,6 @@ package br.com.dbserver.steps;
 
 import br.com.dbserver.pageobjects.DiffElementsPageObject;
 import com.github.javafaker.Faker;
-import org.apache.commons.lang3.builder.Diff;
 import org.openqa.selenium.WebDriver;
 
 public class DiffElementsStep {
