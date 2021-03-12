@@ -22,12 +22,12 @@ public class DiffElementsStep {
     }
 
     public DiffElementsStep indexPage() {
-//        textArea();
-//        textBox();
-//        radioButton();
-//        checkBox();
-//        inputTypeButton();
-//        image();
+        textArea();
+        textBox();
+        radioButton();
+        checkBox();
+        inputTypeButton();
+        image();
         dropDownSelect();
         return this;
     }
