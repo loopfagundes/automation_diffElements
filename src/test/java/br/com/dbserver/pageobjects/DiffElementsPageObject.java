@@ -21,4 +21,12 @@ public class DiffElementsPageObject {
     public WebElement textBoxFirstNameTextField() {
         return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > form:nth-child(13) > input[type=text]:nth-child(2)"));
     }
+
+    public WebElement textBoxLastNameTextField() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > form:nth-child(13) > input[type=text]:nth-child(5)"));
+    }
+
+    public WebElement textBoxResetButton() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > form:nth-child(13) > input[type=reset]:nth-child(9)"));
+    }
 }

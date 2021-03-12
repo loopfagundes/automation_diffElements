@@ -17,6 +17,7 @@ public class DiffElementsStep {
 
     public DiffElementsStep indexPage() {
         textArea();
+        textBox();
         return this;
     }
 
@@ -33,6 +34,26 @@ public class DiffElementsStep {
     }
 
     private DiffElementsStep textBox() {
+        String firstNameString = "Test";
+        String lastNameString = "NG";
+        String firstNameFaker = faker.name().firstName();
+        String lastNameFaker = faker.name().lastName();
+        //Utilizei string com variáveis.
+        diffElements.textBoxFirstNameTextField().sendKeys(firstNameString);
+        diffElements.textBoxLastNameTextField().sendKeys(lastNameString);
+        diffElements.textBoxResetButton().click();
+        //Utilizei string com variáveis e metodo de faker.
+        diffElements.textBoxFirstNameTextField().sendKeys(firstNameFaker);
+        diffElements.textBoxLastNameTextField().sendKeys(lastNameFaker);
+        diffElements.textBoxResetButton().click();
+        //Digitei dentro metodo de sendKeys.
+        diffElements.textBoxFirstNameTextField().sendKeys("First Test Keys");
+        diffElements.textBoxLastNameTextField().sendKeys("Last Test Keys");
+        diffElements.textBoxResetButton().click();
+        //Utilizei metodo de faker.
+        diffElements.textBoxFirstNameTextField().sendKeys(faker.name().firstName());
+        diffElements.textBoxLastNameTextField().sendKeys(faker.name().lastName());
+        diffElements.textBoxResetButton().click();
         return this;
     }
 }
