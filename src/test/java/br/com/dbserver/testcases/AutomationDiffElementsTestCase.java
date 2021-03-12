@@ -1,5 +1,6 @@
 package br.com.dbserver.testcases;
 
+import br.com.dbserver.steps.DiffElementsStep;
 import br.com.dbserver.utils.BaseTest;
 import br.com.dbserver.utils.Property;
 import org.openqa.selenium.WebDriver;
@@ -13,5 +14,7 @@ public class AutomationDiffElementsTestCase extends BaseTest {
     public void diffElementsTest() {
         WebDriver driver = getDriver();
         driver.get(Property.get("url"));
+        DiffElementsStep diffElements = new DiffElementsStep(driver);
+        diffElements.indexPage();
     }
 }
