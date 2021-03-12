@@ -61,4 +61,8 @@ public class DiffElementsPageObject {
     public WebElement inputTypeButtonClickMeButton() {
         return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=button]:nth-child(40)"));
     }
+
+    public WebElement imageFile() {
+        return waitElement.visibilityOf(By.xpath("//*[@id=\"post-body-7988417473080013803\"]/div[1]/center/img"));
+    }
 }
