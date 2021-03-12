@@ -1,18 +1,21 @@
 package br.com.dbserver.steps;
 
 import br.com.dbserver.pageobjects.DiffElementsPageObject;
+import br.com.dbserver.utils.JavaScriptAlert;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
 
 public class DiffElementsStep {
     private final WebDriver driver;
     private final DiffElementsPageObject diffElements;
+    private final JavaScriptAlert javaScriptAlert;
     private Faker faker;
 
     public DiffElementsStep(WebDriver _driver) {
         driver = _driver;
         diffElements = new DiffElementsPageObject(_driver);
         faker = new Faker();
+        javaScriptAlert = new JavaScriptAlert();
     }
 
     public DiffElementsStep indexPage() {
@@ -20,6 +23,7 @@ public class DiffElementsStep {
         textBox();
         radioButton();
         checkBox();
+        inputTypeButton();
         return this;
     }
 
@@ -71,6 +75,13 @@ public class DiffElementsStep {
         diffElements.checkboxTwoCheckBox().click();
         diffElements.checkboxThreeCheckBox().click();
         diffElements.checkboxFourCheckBox().click();
+        return this;
+    }
+
+    public DiffElementsStep inputTypeButton() {
+        diffElements.inputTypeButtonClickMeButton().click();
+        javaScriptAlert.jsAlerts(driver);
+        javaScriptAlert.jsAlertAccept();
         return this;
     }
 }

@@ -57,4 +57,8 @@ public class DiffElementsPageObject {
     public WebElement checkboxFourCheckBox() {
         return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=checkbox]:nth-child(36)"));
     }
+
+    public WebElement inputTypeButtonClickMeButton() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=button]:nth-child(40)"));
+    }
 }
