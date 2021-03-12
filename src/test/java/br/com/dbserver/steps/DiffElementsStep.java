@@ -27,7 +27,8 @@ public class DiffElementsStep {
 //        radioButton();
 //        checkBox();
 //        inputTypeButton();
-        image();
+//        image();
+        dropDownSelect();
         return this;
     }
 
@@ -67,14 +68,14 @@ public class DiffElementsStep {
         return this;
     }
 
-    public DiffElementsStep radioButton() {
+    private DiffElementsStep radioButton() {
         diffElements.radioButtonNoCheckBox().click();
         diffElements.radioButtonYesCheckBox().click();
         diffElements.radioButtonOtherCheckBox().click();
         return this;
     }
 
-    public DiffElementsStep checkBox() {
+    private DiffElementsStep checkBox() {
         diffElements.checkboxOneCheckBox().click();
         diffElements.checkboxTwoCheckBox().click();
         diffElements.checkboxThreeCheckBox().click();
@@ -82,15 +83,20 @@ public class DiffElementsStep {
         return this;
     }
 
-    public DiffElementsStep inputTypeButton() {
+    private DiffElementsStep inputTypeButton() {
         diffElements.inputTypeButtonClickMeButton().click();
         javaScriptAlert.jsAlerts(driver);
         javaScriptAlert.jsAlertAccept();
         return this;
     }
 
-    public DiffElementsStep image() {
+    private DiffElementsStep image() {
         jsExecutor.ImageFile(driver, diffElements.imageFile());
+        return this;
+    }
+
+    private DiffElementsStep dropDownSelect() {
+        diffElements.DropDownCarsComboBox().selectByValue("saab");
         return this;
     }
 }

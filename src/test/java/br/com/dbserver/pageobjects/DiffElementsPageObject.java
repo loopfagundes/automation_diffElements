@@ -4,6 +4,7 @@ import br.com.dbserver.utils.WaitElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class DiffElementsPageObject {
     private final WebDriver driver;
@@ -64,5 +65,9 @@ public class DiffElementsPageObject {
 
     public WebElement imageFile() {
         return waitElement.visibilityOf(By.xpath("//*[@id=\"post-body-7988417473080013803\"]/div[1]/center/img"));
+    }
+
+    public Select DropDownCarsComboBox() {
+        return new Select(waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > form:nth-child(52) > select")));
     }
 }
