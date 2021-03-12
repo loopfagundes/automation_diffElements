@@ -67,7 +67,23 @@ public class DiffElementsPageObject {
         return waitElement.visibilityOf(By.xpath("//*[@id=\"post-body-7988417473080013803\"]/div[1]/center/img"));
     }
 
-    public Select DropDownCarsComboBox() {
+    public Select dropDownCarsComboBox() {
         return new Select(waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > form:nth-child(52) > select")));
+    }
+
+    public WebElement webTableNameLabel() {
+        return waitElement.visibilityOf(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > table > tbody > tr:nth-child(2) > td:nth-child(1)"));
+    }
+
+    public WebElement webTableJamesSalaryLabel() {
+        return waitElement.visibilityOf(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > table > tbody > tr:nth-child(2) > td:nth-child(2)"));
+    }
+
+    public WebElement webTableNameTwoColunLabel() {
+        return waitElement.visibilityOf(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > table > tbody > tr:nth-child(3) > td:nth-child(1)"));
+    }
+
+    public WebElement webTableJohnSalaryLabel() {
+        return waitElement.visibilityOf(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > table > tbody > tr:nth-child(3) > td:nth-child(2)"));
     }
 }

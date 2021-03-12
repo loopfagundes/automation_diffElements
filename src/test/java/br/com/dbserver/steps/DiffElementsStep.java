@@ -5,6 +5,7 @@ import br.com.dbserver.utils.JavaScriptAlert;
 import br.com.dbserver.utils.JsExecutor;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class DiffElementsStep {
     private final WebDriver driver;
@@ -29,6 +30,7 @@ public class DiffElementsStep {
         inputTypeButton();
         image();
         dropDownSelect();
+        webTable();
         return this;
     }
 
@@ -96,7 +98,15 @@ public class DiffElementsStep {
     }
 
     private DiffElementsStep dropDownSelect() {
-        diffElements.DropDownCarsComboBox().selectByValue("saab");
+        diffElements.dropDownCarsComboBox().selectByValue("saab");
+        return this;
+    }
+
+    private DiffElementsStep webTable() {
+        Assert.assertEquals(diffElements.webTableNameLabel().getText(), "James");
+        Assert.assertEquals(diffElements.webTableJamesSalaryLabel().getText(), "5000");
+        Assert.assertEquals(diffElements.webTableNameTwoColunLabel().getText(), "John");
+        Assert.assertEquals(diffElements.webTableJohnSalaryLabel().getText(), "7000");
         return this;
     }
 }
