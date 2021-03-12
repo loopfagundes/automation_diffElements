@@ -41,4 +41,20 @@ public class DiffElementsPageObject {
     public WebElement radioButtonOtherCheckBox() {
         return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=radio]:nth-child(24)"));
     }
+
+    public WebElement checkboxOneCheckBox() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=checkbox]:nth-child(30)"));
+    }
+
+    public WebElement checkboxTwoCheckBox() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=checkbox]:nth-child(32)"));
+    }
+
+    public WebElement checkboxThreeCheckBox() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=checkbox]:nth-child(34)"));
+    }
+
+    public WebElement checkboxFourCheckBox() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=checkbox]:nth-child(36)"));
+    }
 }

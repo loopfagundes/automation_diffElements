@@ -2,6 +2,7 @@ package br.com.dbserver.steps;
 
 import br.com.dbserver.pageobjects.DiffElementsPageObject;
 import com.github.javafaker.Faker;
+import org.apache.commons.lang3.builder.Diff;
 import org.openqa.selenium.WebDriver;
 
 public class DiffElementsStep {
@@ -19,6 +20,7 @@ public class DiffElementsStep {
         textArea();
         textBox();
         radioButton();
+        checkBox();
         return this;
     }
 
@@ -62,6 +64,14 @@ public class DiffElementsStep {
         diffElements.radioButtonNoCheckBox().click();
         diffElements.radioButtonYesCheckBox().click();
         diffElements.radioButtonOtherCheckBox().click();
+        return this;
+    }
+
+    public DiffElementsStep checkBox() {
+        diffElements.checkboxOneCheckBox().click();
+        diffElements.checkboxTwoCheckBox().click();
+        diffElements.checkboxThreeCheckBox().click();
+        diffElements.checkboxFourCheckBox().click();
         return this;
     }
 }
