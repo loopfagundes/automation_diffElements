@@ -2,3 +2,4 @@
 report/
 target/
 *.iml
+.settings/
