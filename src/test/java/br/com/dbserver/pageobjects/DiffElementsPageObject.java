@@ -86,4 +86,30 @@ public class DiffElementsPageObject {
     public WebElement webTableJohnSalaryLabel() {
         return waitElement.visibilityOf(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > table > tbody > tr:nth-child(3) > td:nth-child(2)"));
     }
+
+    public WebElement validateSeleniumWebDriverLabel() {
+        WebElement iframeElement = waitElement.visibilityOf(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > iframe:nth-child(62)"));
+        WebDriver iframeDriver = driver.switchTo().frame(iframeElement);
+        return iframeDriver.findElement(By.cssSelector("body > section.getting-started.dark-background > div > div:nth-child(1) > h3"));
+    }
+
+    public WebElement searchWikipediaTextField() {
+        WebElement iframeElement = waitElement.visibilityOf(By.id("iframe01"));
+        WebDriver iframeDriver = driver.switchTo().frame(iframeElement);
+        return iframeDriver.findElement(By.cssSelector("input[id='searchInput']"));
+    }
+
+    public WebElement searchWikipediaButton() {
+        WebElement iframeElement = waitElement.visibilityOf(By.id("iframe01"));
+        WebDriver iframeDriver = driver.switchTo().frame(iframeElement);
+        return iframeDriver.findElement(By.cssSelector("#search-form > fieldset > button"));
+    }
+
+    public WebElement datePickerTextField() {
+        return waitElement.toBeClickable(By.id("start"));
+    }
+
+    public WebElement autoCompleteEmailtextField() {
+        return waitElement.toBeClickable(By.id("email"));
+    }
 }
