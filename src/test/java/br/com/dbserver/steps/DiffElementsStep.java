@@ -35,6 +35,7 @@ public class DiffElementsStep {
 //        frameSeleniumAndWikipedia();
 //        datePicker();
 //        autoCompleteEmail();
+//        listBox();
         return this;
     }
 
@@ -143,6 +144,16 @@ public class DiffElementsStep {
         diffElements.autoCompleteEmailtextField().clear();
         // utilizei método de faker dentro sendkey.
         diffElements.autoCompleteEmailtextField().sendKeys(faker.internet().emailAddress());
+        return this;
+    }
+
+    private DiffElementsStep listBox() {
+        diffElements.listBoxComboBox().selectByValue("Option3");
+        diffElements.listBoxComboBox().deselectByValue("Option3");
+        diffElements.listBoxComboBox().selectByValue("option1");
+        diffElements.listBoxComboBox().deselectByValue("option1");
+        diffElements.listBoxComboBox().selectByValue("option2");
+        diffElements.listBoxComboBox().deselectByValue("option2");
         return this;
     }
 }
