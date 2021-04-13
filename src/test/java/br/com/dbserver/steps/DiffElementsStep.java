@@ -4,6 +4,7 @@ import br.com.dbserver.pageobjects.DiffElementsPageObject;
 import br.com.dbserver.utils.JavaScriptAlert;
 import br.com.dbserver.utils.JsExecutor;
 import com.github.javafaker.Faker;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -23,14 +24,17 @@ public class DiffElementsStep {
     }
 
     public DiffElementsStep indexPage() {
-        textArea();
-        textBox();
-        radioButton();
-        checkBox();
-        inputTypeButton();
-        image();
-        dropDownSelect();
-        webTable();
+//        textArea();
+//        textBox();
+//        radioButton();
+//        checkBox();
+//        inputTypeButton();
+//        image();
+//        dropDownSelect();
+//        webTable();
+//        frameSeleniumAndWikipedia();
+//        datePicker();
+//        autoCompleteEmail();
         return this;
     }
 
@@ -55,15 +59,15 @@ public class DiffElementsStep {
         diffElements.textBoxFirstNameTextField().sendKeys(firstNameString);
         diffElements.textBoxLastNameTextField().sendKeys(lastNameString);
         diffElements.textBoxResetButton().click();
-        //Utilizei string com variáveis e metodo de faker.
+        //Utilizei string com variáveis e método de faker.
         diffElements.textBoxFirstNameTextField().sendKeys(firstNameFaker);
         diffElements.textBoxLastNameTextField().sendKeys(lastNameFaker);
         diffElements.textBoxResetButton().click();
-        //Digitei dentro metodo de sendKeys.
+        //Digitei dentro método de sendKeys com string.
         diffElements.textBoxFirstNameTextField().sendKeys("First Test Keys");
         diffElements.textBoxLastNameTextField().sendKeys("Last Test Keys");
         diffElements.textBoxResetButton().click();
-        //Utilizei metodo de faker.
+        //Utilizei método de faker.
         diffElements.textBoxFirstNameTextField().sendKeys(faker.name().firstName());
         diffElements.textBoxLastNameTextField().sendKeys(faker.name().lastName());
         diffElements.textBoxResetButton().click();
@@ -107,6 +111,38 @@ public class DiffElementsStep {
         Assert.assertEquals(diffElements.webTableJamesSalaryLabel().getText(), "5000");
         Assert.assertEquals(diffElements.webTableNameTwoColunLabel().getText(), "John");
         Assert.assertEquals(diffElements.webTableJohnSalaryLabel().getText(), "7000");
+        return this;
+    }
+
+    private DiffElementsStep frameSeleniumAndWikipedia() {
+        Assert.assertEquals(diffElements.validateSeleniumWebDriverLabel().getText(), "Selenium WebDriver");
+        driver.switchTo().defaultContent();
+        diffElements.searchWikipediaTextField().sendKeys("Microsoft Windows");
+        driver.switchTo().defaultContent();
+        diffElements.searchWikipediaButton().click();
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    private DiffElementsStep datePicker() {
+        diffElements.datePickerTextField().sendKeys("20112018");
+        return this;
+    }
+
+    private DiffElementsStep autoCompleteEmail() {
+        String email = "test@test.com";
+        String emailFaker = faker.internet().emailAddress();
+        // utilizei string com variável.
+        diffElements.autoCompleteEmailtextField().sendKeys(email);
+        diffElements.autoCompleteEmailtextField().clear();
+        // utilizei variável com método de faker.
+        diffElements.autoCompleteEmailtextField().sendKeys(emailFaker);
+        diffElements.autoCompleteEmailtextField().clear();
+        // utilizei string dentro método de sendkey.
+        diffElements.autoCompleteEmailtextField().sendKeys("string@string.com");
+        diffElements.autoCompleteEmailtextField().clear();
+        // utilizei método de faker dentro sendkey.
+        diffElements.autoCompleteEmailtextField().sendKeys(faker.internet().emailAddress());
         return this;
     }
 }
