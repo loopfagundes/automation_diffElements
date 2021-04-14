@@ -1,10 +1,10 @@
 package br.com.dbserver.steps;
 
 import br.com.dbserver.pageobjects.DiffElementsPageObject;
+import br.com.dbserver.utils.ActionsSupport;
 import br.com.dbserver.utils.JavaScriptAlert;
 import br.com.dbserver.utils.JsExecutor;
 import com.github.javafaker.Faker;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -14,6 +14,7 @@ public class DiffElementsStep {
     private final JavaScriptAlert javaScriptAlert;
     private JsExecutor jsExecutor;
     private Faker faker;
+    private ActionsSupport actionsSupport;
 
     public DiffElementsStep(WebDriver _driver) {
         driver = _driver;
@@ -21,6 +22,7 @@ public class DiffElementsStep {
         faker = new Faker();
         javaScriptAlert = new JavaScriptAlert();
         jsExecutor = new JsExecutor();
+        actionsSupport = new ActionsSupport(driver);
     }
 
     public DiffElementsStep indexPage() {
@@ -36,6 +38,7 @@ public class DiffElementsStep {
 //        datePicker();
 //        autoCompleteEmail();
 //        listBox();
+        doubleClick();
         return this;
     }
 
@@ -154,6 +157,11 @@ public class DiffElementsStep {
         diffElements.listBoxComboBox().deselectByValue("option1");
         diffElements.listBoxComboBox().selectByValue("option2");
         diffElements.listBoxComboBox().deselectByValue("option2");
+        return this;
+    }
+
+    private DiffElementsStep doubleClick() {
+        actionsSupport.doubleClick(diffElements.doubleClickButton());
         return this;
     }
 }

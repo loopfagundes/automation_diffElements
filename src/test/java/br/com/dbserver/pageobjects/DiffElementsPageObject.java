@@ -116,4 +116,8 @@ public class DiffElementsPageObject {
     public Select listBoxComboBox() {
         return new Select(waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > select:nth-child(81)")));
     }
+
+    public WebElement doubleClickButton() {
+        return waitElement.toBeClickable(By.id("doubleClickBtn"));
+    }
 }
