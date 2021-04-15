@@ -6,12 +6,12 @@ import br.com.dbserver.utils.JavaScriptAlert;
 import br.com.dbserver.utils.JsExecutor;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 public class DiffElementsStep {
     private final WebDriver driver;
     private final DiffElementsPageObject diffElements;
-    private final JavaScriptAlert javaScriptAlert;
     private JsExecutor jsExecutor;
     private Faker faker;
     private ActionsSupport actionsSupport;
@@ -20,7 +20,6 @@ public class DiffElementsStep {
         driver = _driver;
         diffElements = new DiffElementsPageObject(_driver);
         faker = new Faker();
-        javaScriptAlert = new JavaScriptAlert();
         jsExecutor = new JsExecutor();
         actionsSupport = new ActionsSupport(driver);
     }
@@ -38,7 +37,8 @@ public class DiffElementsStep {
 //        datePicker();
 //        autoCompleteEmail();
 //        listBox();
-        doubleClick();
+//        comboBox();
+//        doubleClick();
         return this;
     }
 
@@ -95,8 +95,8 @@ public class DiffElementsStep {
 
     private DiffElementsStep inputTypeButton() {
         diffElements.inputTypeButtonClickMeButton().click();
-        javaScriptAlert.jsAlerts(driver);
-        javaScriptAlert.jsAlertAccept();
+        JavaScriptAlert.jsAlerts(driver);
+        JavaScriptAlert.jsAlertAccept();
         return this;
     }
 
@@ -160,8 +160,18 @@ public class DiffElementsStep {
         return this;
     }
 
+    private DiffElementsStep comboBox() {
+        diffElements.comboBox().selectByValue("java");
+        diffElements.comboBox().selectByValue("C++");
+        diffElements.comboBox().selectByValue("html");
+        diffElements.comboBox().selectByValue("sap");
+        return this;
+    }
+
     private DiffElementsStep doubleClick() {
         actionsSupport.doubleClick(diffElements.doubleClickButton());
+        JavaScriptAlert.jsAlerts(driver);
+        JavaScriptAlert.jsAlertAccept();
         return this;
     }
 }

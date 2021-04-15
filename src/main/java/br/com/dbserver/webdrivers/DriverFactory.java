@@ -7,6 +7,7 @@ import org.openqa.selenium.SessionNotCreatedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverFactory {
@@ -19,6 +20,9 @@ public class DriverFactory {
                 case CHROME:
                     WebDriverManager.chromedriver().setup();
                     return new ChromeDriver();
+                case EDGE:
+                    WebDriverManager.edgedriver().setup();
+                    return new EdgeDriver();
                 default:
                     String message = "DriverFactory.getInstance() recebeu um argumento invalido";
                     ExtentTestManager.getTest().log(Status.FATAL, message);
