@@ -125,19 +125,23 @@ public class DiffElementsPageObject {
         return waitElement.toBeClickable(By.id("doubleClickBtn"));
     }
 
-    public WebElement fileUpdate() {
+    public WebElement fileUpdateButton() {
         return waitElement.toBeClickable(By.id("fileupload1"));
     }
 
-    public WebElement simpleAlert() {
+    public WebElement simpleAlertButton() {
         return waitElement.toBeClickable(By.id("simpleAlert"));
     }
 
-    public WebElement confirmationAlert() {
+    public WebElement confirmationAlertButton() {
         return waitElement.toBeClickable(By.id("confirmationAlert"));
     }
 
-    public WebElement promptAlert() {
+    public WebElement promptAlertButton() {
         return waitElement.toBeClickable(By.id("promptAlert"));
+    }
+
+    public WebElement clickToOpenNewBrowserButton() {
+        return waitElement.toBeClickable(By.id("windowhandling1"));
     }
 }

@@ -4,14 +4,15 @@ import br.com.dbserver.pageobjects.DiffElementsPageObject;
 import br.com.dbserver.utils.ActionsSupport;
 import br.com.dbserver.utils.JavaScriptAlert;
 import br.com.dbserver.utils.JsExecutor;
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.service.ExtentTestManager;
 import com.github.javafaker.Faker;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import java.io.File;
+import java.util.Set;
 
 public class DiffElementsStep {
     private final WebDriver driver;
@@ -30,22 +31,23 @@ public class DiffElementsStep {
     }
 
     public DiffElementsStep indexPage() {
-        textArea();
-        textBox();
-        radioButton();
-        checkBox();
-        inputTypeButton();
-        image();
-        dropDownSelect();
-        webTable();
-        frameSeleniumAndWikipedia();
-        datePicker();
-        autoCompleteEmail();
-        listBox();
-        comboBox();
-        doubleClick();
-        fileUpdate();
-        jsAlertaPopUp();
+//        textArea();
+//        textBox();
+//        radioButton();
+//        checkBox();
+//        inputTypeButton();
+//        image();
+//        dropDownSelect();
+//        webTable();
+//        frameSeleniumAndWikipedia();
+//        datePicker();
+//        autoCompleteEmail();
+//        listBox();
+//        comboBox();
+//        doubleClick();
+//        fileUpdate();
+//        jsAlertaPopUp();
+        clickToOpenNewBrowser();
         return this;
     }
 
@@ -196,21 +198,31 @@ public class DiffElementsStep {
 
     private DiffElementsStep fileUpdate() {
         ExtentTestManager.getTest().log(Status.INFO, "File Update");
-        diffElements.fileUpdate().sendKeys(FILE_UPDATE);
+        diffElements.fileUpdateButton().sendKeys(FILE_UPDATE);
         return this;
     }
 
     private DiffElementsStep jsAlertaPopUp() {
         ExtentTestManager.getTest().log(Status.INFO, "Alerts Pop-Up");
-        diffElements.simpleAlert().click();
+        diffElements.simpleAlertButton().click();
         JavaScriptAlert.jsAlertAccept(driver);
-        diffElements.confirmationAlert().click();
+        diffElements.confirmationAlertButton().click();
         JavaScriptAlert.jsAlertAccept(driver);
-        diffElements.confirmationAlert().click();
+        diffElements.confirmationAlertButton().click();
         JavaScriptAlert.jsAlertDismiss(driver);
-        diffElements.promptAlert().click();
+        diffElements.promptAlertButton().click();
         JavaScriptAlert.jsAlertKeys(driver, "Gooooool!!!!");
         JavaScriptAlert.jsAlertAccept(driver);
+        return this;
+    }
+
+    private DiffElementsStep clickToOpenNewBrowser() {
+        ExtentTestManager.getTest().log(Status.INFO, "Click To Open New Browser and close");
+        diffElements.clickToOpenNewBrowserButton().click();
+        for(String windowHandles : driver.getWindowHandles()){
+            driver.switchTo().window(windowHandles);
+        }
+        driver.close();
         return this;
     }
 }
