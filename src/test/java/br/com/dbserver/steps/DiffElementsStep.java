@@ -6,7 +6,6 @@ import br.com.dbserver.utils.JavaScriptAlert;
 import br.com.dbserver.utils.JsExecutor;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 public class DiffElementsStep {
