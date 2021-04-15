@@ -31,22 +31,22 @@ public class DiffElementsStep {
     }
 
     public DiffElementsStep indexPage() {
-//        textArea();
-//        textBox();
-//        radioButton();
-//        checkBox();
-//        inputTypeButton();
-//        image();
-//        dropDownSelect();
-//        webTable();
-//        frameSeleniumAndWikipedia();
-//        datePicker();
-//        autoCompleteEmail();
-//        listBox();
-//        comboBox();
-//        doubleClick();
-//        fileUpdate();
-//        jsAlertaPopUp();
+        textArea();
+        textBox();
+        radioButton();
+        checkBox();
+        inputTypeButton();
+        image();
+        dropDownSelect();
+        webTable();
+        frameSeleniumAndWikipedia();
+        datePicker();
+        autoCompleteEmail();
+        listBox();
+        comboBox();
+        doubleClick();
+        fileUpdate();
+        jsAlertaPopUp();
         clickToOpenNewBrowser();
         return this;
     }
