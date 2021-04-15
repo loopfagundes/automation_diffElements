@@ -6,24 +6,27 @@ import org.openqa.selenium.WebDriver;
 public class JavaScriptAlert {
     private static Alert alert;
 
-    public static void jsAlerts(WebDriver driver) {
+    public static String jsAlertText(WebDriver driver) {
         alert = driver.switchTo().alert();
-    }
-
-    public static String jsAlertText() {
         String getText = alert.getText();
         return getText;
     }
 
-    public static void jsAlertAccept() {
+    public static Alert jsAlertAccept(WebDriver driver) {
+        alert = driver.switchTo().alert();
         alert.accept();
+        return alert;
     }
 
-    public static void jsAlertDismiss() {
+    public static Alert jsAlertDismiss(WebDriver driver) {
+        alert = driver.switchTo().alert();
         alert.dismiss();
+        return alert;
     }
 
-    public static void jsAlertKeys(String var) {
+    public static Alert jsAlertKeys(WebDriver driver, String var) {
+        alert = driver.switchTo().alert();
         alert.sendKeys(var);
+        return alert;
     }
 }

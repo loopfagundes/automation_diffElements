@@ -128,4 +128,16 @@ public class DiffElementsPageObject {
     public WebElement fileUpdate() {
         return waitElement.toBeClickable(By.id("fileupload1"));
     }
+
+    public WebElement simpleAlert() {
+        return waitElement.toBeClickable(By.id("simpleAlert"));
+    }
+
+    public WebElement confirmationAlert() {
+        return waitElement.toBeClickable(By.id("confirmationAlert"));
+    }
+
+    public WebElement promptAlert() {
+        return waitElement.toBeClickable(By.id("promptAlert"));
+    }
 }
