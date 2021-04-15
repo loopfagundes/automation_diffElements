@@ -8,12 +8,15 @@ import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import java.io.File;
+
 public class DiffElementsStep {
     private final WebDriver driver;
     private final DiffElementsPageObject diffElements;
     private JsExecutor jsExecutor;
     private Faker faker;
     private ActionsSupport actionsSupport;
+    private static final String FILE_UPDATE = System.getProperty("user.dir") + File.separator + "photo" + File.separator + "java.jpg";
 
     public DiffElementsStep(WebDriver _driver) {
         driver = _driver;
@@ -38,6 +41,7 @@ public class DiffElementsStep {
 //        listBox();
 //        comboBox();
 //        doubleClick();
+        fileUpdate();
         return this;
     }
 
@@ -171,6 +175,11 @@ public class DiffElementsStep {
         actionsSupport.doubleClick(diffElements.doubleClickButton());
         JavaScriptAlert.jsAlerts(driver);
         JavaScriptAlert.jsAlertAccept();
+        return this;
+    }
+
+    private DiffElementsStep fileUpdate() {
+        diffElements.fileUpdate().sendKeys(FILE_UPDATE);
         return this;
     }
 }

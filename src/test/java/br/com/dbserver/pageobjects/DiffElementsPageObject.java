@@ -124,4 +124,8 @@ public class DiffElementsPageObject {
     public WebElement doubleClickButton() {
         return waitElement.toBeClickable(By.id("doubleClickBtn"));
     }
+
+    public WebElement fileUpdate() {
+        return waitElement.toBeClickable(By.id("fileupload1"));
+    }
 }
