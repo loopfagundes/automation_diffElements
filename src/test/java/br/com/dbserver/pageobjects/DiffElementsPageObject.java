@@ -71,6 +71,10 @@ public class DiffElementsPageObject {
         return new Select(waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > form:nth-child(52) > select")));
     }
 
+    public WebElement submitButton() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > form:nth-child(52) > input[type=submit]"));
+    }
+
     public WebElement webTableNameLabel() {
         return waitElement.visibilityOf(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > table > tbody > tr:nth-child(2) > td:nth-child(1)"));
     }
@@ -143,5 +147,13 @@ public class DiffElementsPageObject {
 
     public WebElement clickToOpenNewBrowserButton() {
         return waitElement.toBeClickable(By.id("windowhandling1"));
+    }
+
+    public WebElement clickHoldWaitButton() {
+        return waitElement.toBeClickable(By.id("testWait123"));
+    }
+
+    public WebElement validateClickAndHoldLabel() {
+        return driver.findElement(By.id("timeout_text"));
     }
 }

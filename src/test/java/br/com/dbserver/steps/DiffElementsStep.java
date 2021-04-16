@@ -2,17 +2,16 @@ package br.com.dbserver.steps;
 
 import br.com.dbserver.pageobjects.DiffElementsPageObject;
 import br.com.dbserver.utils.ActionsSupport;
+import br.com.dbserver.webdrivers.DriverClose;
 import br.com.dbserver.utils.JavaScriptAlert;
 import br.com.dbserver.utils.JsExecutor;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.service.ExtentTestManager;
 import com.github.javafaker.Faker;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import java.io.File;
-import java.util.Set;
 
 public class DiffElementsStep {
     private final WebDriver driver;
@@ -48,6 +47,7 @@ public class DiffElementsStep {
         fileUpdate();
         jsAlertaPopUp();
         clickToOpenNewBrowser();
+        clickHoldWait();
         return this;
     }
 
@@ -122,8 +122,13 @@ public class DiffElementsStep {
     private DiffElementsStep dropDownSelect() {
         ExtentTestManager.getTest().log(Status.INFO, "Drop Down");
         diffElements.dropDownCarsComboBox().selectByValue("saab");
+        diffElements.dropDownCarsComboBox().selectByValue("audi");
+        diffElements.dropDownCarsComboBox().selectByValue("volvo");
+        diffElements.dropDownCarsComboBox().selectByValue("fiat");
+        diffElements.submitButton().click();
+        DriverClose.closeTab(driver);
         return this;
-    }
+}
 
     private DiffElementsStep webTable() {
         ExtentTestManager.getTest().log(Status.INFO, "Web Table");
@@ -219,10 +224,13 @@ public class DiffElementsStep {
     private DiffElementsStep clickToOpenNewBrowser() {
         ExtentTestManager.getTest().log(Status.INFO, "Click To Open New Browser and close");
         diffElements.clickToOpenNewBrowserButton().click();
-        for(String windowHandles : driver.getWindowHandles()){
-            driver.switchTo().window(windowHandles);
-        }
-        driver.close();
+        DriverClose.closeSecondaryBrowser(driver);
+        return this;
+    }
+
+    private DiffElementsStep clickHoldWait() {
+        ActionsSupport.clickAndHold(diffElements.clickHoldWaitButton());
+        System.out.println("click and hold: " + diffElements.validateClickAndHoldLabel().getText());
         return this;
     }
 }
