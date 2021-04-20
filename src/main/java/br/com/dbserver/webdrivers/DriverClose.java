@@ -1,6 +1,7 @@
 package br.com.dbserver.webdrivers;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.util.Iterator;
 import java.util.Set;
@@ -8,10 +9,12 @@ import java.util.Set;
 public class DriverClose {
 
     public static void closeSecondaryBrowser(WebDriver driver) {
-        for (String windowHandles : driver.getWindowHandles()) {
-            driver.switchTo().window(windowHandles);
+        String firstBrowser = driver.getWindowHandle();
+        for (String secondaryBrowser : driver.getWindowHandles()) {
+            driver.switchTo().window(secondaryBrowser);
         }
         driver.close();
+        driver.switchTo().window(firstBrowser);
     }
 
     public static void closeTab(WebDriver driver) {

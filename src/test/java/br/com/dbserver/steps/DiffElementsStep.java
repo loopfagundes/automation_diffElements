@@ -50,6 +50,7 @@ public class DiffElementsStep {
         jsAlertaPopUp();
         clickToOpenNewBrowser();
         clickHoldWait();
+        hiddenField();
         return this;
     }
 
@@ -226,6 +227,7 @@ public class DiffElementsStep {
     private DiffElementsStep clickToOpenNewBrowser() {
         Report.log(Status.INFO, "Click To Open New Browser and close");
         diffElements.clickToOpenNewBrowserButton().click();
+        DriverClose.closeSecondaryBrowser(driver);
         return this;
     }
 
@@ -233,12 +235,16 @@ public class DiffElementsStep {
         Report.log(Status.INFO, "Click and Hold");
         diffElements.clickHoldWaitButton().click();
         if (diffElements.validateClickAndHoldLabel().isDisplayed()) {
-            System.out.println("Click and hold: " + diffElements.validateClickAndHoldLabel().getText());
             Assert.assertEquals("Welcome To Automation Testing Insider", diffElements.validateClickAndHoldLabel().getText());
         } else {
-            System.out.println("Error - click and hold.");
+            System.out.println("Error method: clickHoldWait");
         }
-        DriverClose.closeSecondaryBrowser(driver);
+        return this;
+    }
+
+    private DiffElementsStep hiddenField() {
+        Report.log(Status.INFO, "Hidden Field");
+        Assert.assertEquals("Hidden Field", diffElements.hiddenFieldLabel().getText());
         return this;
     }
 }
