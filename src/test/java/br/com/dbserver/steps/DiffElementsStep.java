@@ -2,16 +2,18 @@ package br.com.dbserver.steps;
 
 import br.com.dbserver.pageobjects.DiffElementsPageObject;
 import br.com.dbserver.utils.ActionsSupport;
+import br.com.dbserver.utils.Report;
 import br.com.dbserver.webdrivers.DriverClose;
 import br.com.dbserver.utils.JavaScriptAlert;
 import br.com.dbserver.utils.JsExecutor;
 import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.service.ExtentTestManager;
 import com.github.javafaker.Faker;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import java.io.File;
+import java.security.Key;
 
 public class DiffElementsStep {
     private final WebDriver driver;
@@ -52,7 +54,7 @@ public class DiffElementsStep {
     }
 
     private DiffElementsStep textArea() {
-        ExtentTestManager.getTest().log(Status.INFO, "Text Area");
+        Report.log(Status.INFO, "Text Area");
         String space = "\n";
         String text = "Test String" + space;
         String textFaker = faker.chuckNorris().fact() + space;
@@ -65,7 +67,7 @@ public class DiffElementsStep {
     }
 
     private DiffElementsStep textBox() {
-        ExtentTestManager.getTest().log(Status.INFO, "Text Box");
+        Report.log(Status.INFO, "Text Box");
         String firstNameString = "Test";
         String lastNameString = "NG";
         String firstNameFaker = faker.name().firstName();
@@ -90,7 +92,7 @@ public class DiffElementsStep {
     }
 
     private DiffElementsStep radioButton() {
-        ExtentTestManager.getTest().log(Status.INFO, "Radio Button");
+        Report.log(Status.INFO, "Radio Button");
         diffElements.radioButtonNoCheckBox().click();
         diffElements.radioButtonYesCheckBox().click();
         diffElements.radioButtonOtherCheckBox().click();
@@ -98,7 +100,7 @@ public class DiffElementsStep {
     }
 
     private DiffElementsStep checkBox() {
-        ExtentTestManager.getTest().log(Status.INFO, "CheckBox");
+        Report.log(Status.INFO, "CheckBox");
         diffElements.checkboxOneCheckBox().click();
         diffElements.checkboxTwoCheckBox().click();
         diffElements.checkboxThreeCheckBox().click();
@@ -107,20 +109,20 @@ public class DiffElementsStep {
     }
 
     private DiffElementsStep inputTypeButton() {
-        ExtentTestManager.getTest().log(Status.INFO, "Input Type Button");
+        Report.log(Status.INFO, "Input Type Button");
         diffElements.inputTypeButtonClickMeButton().click();
         JavaScriptAlert.jsAlertAccept(driver);
         return this;
     }
 
     private DiffElementsStep image() {
-        ExtentTestManager.getTest().log(Status.INFO, "Image");
+        Report.log(Status.INFO, "Image");
         jsExecutor.ImageFile(driver, diffElements.imageFile());
         return this;
     }
 
     private DiffElementsStep dropDownSelect() {
-        ExtentTestManager.getTest().log(Status.INFO, "Drop Down");
+        Report.log(Status.INFO, "Drop Down");
         diffElements.dropDownCarsComboBox().selectByValue("saab");
         diffElements.dropDownCarsComboBox().selectByValue("audi");
         diffElements.dropDownCarsComboBox().selectByValue("volvo");
@@ -128,10 +130,10 @@ public class DiffElementsStep {
         diffElements.submitButton().click();
         DriverClose.closeTab(driver);
         return this;
-}
+    }
 
     private DiffElementsStep webTable() {
-        ExtentTestManager.getTest().log(Status.INFO, "Web Table");
+        Report.log(Status.INFO, "Web Table");
         Assert.assertEquals(diffElements.webTableNameLabel().getText(), "James");
         Assert.assertEquals(diffElements.webTableJamesSalaryLabel().getText(), "5000");
         Assert.assertEquals(diffElements.webTableNameTwoColunLabel().getText(), "John");
@@ -140,7 +142,7 @@ public class DiffElementsStep {
     }
 
     private DiffElementsStep frameSeleniumAndWikipedia() {
-        ExtentTestManager.getTest().log(Status.INFO, "Frames");
+        Report.log(Status.INFO, "Frames");
         Assert.assertEquals(diffElements.validateSeleniumWebDriverLabel().getText(), "Selenium WebDriver");
         driver.switchTo().defaultContent();
         diffElements.searchWikipediaTextField().sendKeys("Microsoft Windows");
@@ -151,13 +153,13 @@ public class DiffElementsStep {
     }
 
     private DiffElementsStep datePicker() {
-        ExtentTestManager.getTest().log(Status.INFO, "Date Picker");
+        Report.log(Status.INFO, "Date Picker");
         diffElements.datePickerTextField().sendKeys("20112018");
         return this;
     }
 
     private DiffElementsStep autoCompleteEmail() {
-        ExtentTestManager.getTest().log(Status.INFO, "Auto Complete");
+        Report.log(Status.INFO, "Auto Complete");
         String email = "test@test.com";
         String emailFaker = faker.internet().emailAddress();
         // utilizei string com variável.
@@ -175,7 +177,7 @@ public class DiffElementsStep {
     }
 
     private DiffElementsStep listBox() {
-        ExtentTestManager.getTest().log(Status.INFO, "List Box");
+        Report.log(Status.INFO, "List Box");
         diffElements.listBoxComboBox().selectByValue("Option3");
         diffElements.listBoxComboBox().deselectByValue("Option3");
         diffElements.listBoxComboBox().selectByValue("option1");
@@ -186,7 +188,7 @@ public class DiffElementsStep {
     }
 
     private DiffElementsStep comboBox() {
-        ExtentTestManager.getTest().log(Status.INFO, "Combo Box");
+        Report.log(Status.INFO, "Combo Box");
         diffElements.comboBox().selectByValue("java");
         diffElements.comboBox().selectByValue("C++");
         diffElements.comboBox().selectByValue("html");
@@ -195,20 +197,20 @@ public class DiffElementsStep {
     }
 
     private DiffElementsStep doubleClick() {
-        ExtentTestManager.getTest().log(Status.INFO, "Double Click");
+        Report.log(Status.INFO, "Double Click");
         actionsSupport.doubleClick(diffElements.doubleClickButton());
         JavaScriptAlert.jsAlertAccept(driver);
         return this;
     }
 
     private DiffElementsStep fileUpdate() {
-        ExtentTestManager.getTest().log(Status.INFO, "File Update");
+        Report.log(Status.INFO, "File Update");
         diffElements.fileUpdateButton().sendKeys(FILE_UPDATE);
         return this;
     }
 
     private DiffElementsStep jsAlertaPopUp() {
-        ExtentTestManager.getTest().log(Status.INFO, "Alerts Pop-Up");
+        Report.log(Status.INFO, "Alerts Pop-Up");
         diffElements.simpleAlertButton().click();
         JavaScriptAlert.jsAlertAccept(driver);
         diffElements.confirmationAlertButton().click();
@@ -222,15 +224,21 @@ public class DiffElementsStep {
     }
 
     private DiffElementsStep clickToOpenNewBrowser() {
-        ExtentTestManager.getTest().log(Status.INFO, "Click To Open New Browser and close");
+        Report.log(Status.INFO, "Click To Open New Browser and close");
         diffElements.clickToOpenNewBrowserButton().click();
-        DriverClose.closeSecondaryBrowser(driver);
         return this;
     }
 
     private DiffElementsStep clickHoldWait() {
-        ActionsSupport.clickAndHold(diffElements.clickHoldWaitButton());
-        System.out.println("click and hold: " + diffElements.validateClickAndHoldLabel().getText());
+        Report.log(Status.INFO, "Click and Hold");
+        diffElements.clickHoldWaitButton().click();
+        if (diffElements.validateClickAndHoldLabel().isDisplayed()) {
+            System.out.println("Click and hold: " + diffElements.validateClickAndHoldLabel().getText());
+            Assert.assertEquals("Welcome To Automation Testing Insider", diffElements.validateClickAndHoldLabel().getText());
+        } else {
+            System.out.println("Error - click and hold.");
+        }
+        DriverClose.closeSecondaryBrowser(driver);
         return this;
     }
 }

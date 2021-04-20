@@ -16,8 +16,4 @@ public class ActionsSupport {
     public static void doubleClick(WebElement elementLocator) {
         actions.doubleClick(elementLocator).perform();
     }
-
-    public static void clickAndHold(WebElement elementLocator) {
-
-    }
 }

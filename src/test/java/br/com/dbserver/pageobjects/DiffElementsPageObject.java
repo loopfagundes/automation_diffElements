@@ -154,6 +154,6 @@ public class DiffElementsPageObject {
     }
 
     public WebElement validateClickAndHoldLabel() {
-        return driver.findElement(By.id("timeout_text"));
+        return waitElement.visibilityOf(By.id("timeout_text"));
     }
 }
