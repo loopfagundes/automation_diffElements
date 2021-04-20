@@ -51,6 +51,7 @@ public class DiffElementsStep {
         clickToOpenNewBrowser();
         clickHoldWait();
         hiddenField();
+        brokenLink();
         return this;
     }
 
@@ -245,6 +246,12 @@ public class DiffElementsStep {
     private DiffElementsStep hiddenField() {
         Report.log(Status.INFO, "Hidden Field");
         Assert.assertEquals("Hidden Field", diffElements.hiddenFieldLabel().getText());
+        return this;
+    }
+
+    private DiffElementsStep brokenLink() {
+        Report.log(Status.INFO, "Broken Link");
+        diffElements.brokenLinkButton().click();
         return this;
     }
 }

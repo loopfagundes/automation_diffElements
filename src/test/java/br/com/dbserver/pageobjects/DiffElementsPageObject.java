@@ -160,4 +160,8 @@ public class DiffElementsPageObject {
     public WebElement hiddenFieldLabel() {
         return waitElement.visibilityOf(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > h1:nth-child(118)"));
     }
+
+    public WebElement brokenLinkButton() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > h1:nth-child(121) > a"));
+    }
 }
