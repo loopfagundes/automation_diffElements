@@ -252,6 +252,7 @@ public class DiffElementsStep {
     private DiffElementsStep brokenLink() {
         Report.log(Status.INFO, "Broken Link");
         diffElements.brokenLinkButton().click();
+        driver.navigate().back();
         return this;
     }
 }
