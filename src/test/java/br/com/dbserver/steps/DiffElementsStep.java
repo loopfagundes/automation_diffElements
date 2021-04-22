@@ -13,7 +13,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import java.io.File;
-import java.security.Key;
 
 public class DiffElementsStep {
     private final WebDriver driver;
@@ -252,7 +251,6 @@ public class DiffElementsStep {
     private DiffElementsStep brokenLink() {
         Report.log(Status.INFO, "Broken Link");
         diffElements.brokenLinkButton().click();
-        driver.navigate().back();
         return this;
     }
 }
