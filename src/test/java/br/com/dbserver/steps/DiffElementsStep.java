@@ -20,7 +20,7 @@ public class DiffElementsStep {
     private JsExecutor jsExecutor;
     private Faker faker;
     private ActionsSupport actionsSupport;
-    private static final String FILE_UPDATE = System.getProperty("user.dir") + File.separator + "photo" + File.separator + "java.jpg";
+    private static final String FILE_UPDATE = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test" + File.separator + "photo" + File.separator + "java.jpg";
 
     public DiffElementsStep(WebDriver _driver) {
         driver = _driver;
@@ -60,9 +60,13 @@ public class DiffElementsStep {
         String text = "Test String" + space;
         String textFaker = faker.chuckNorris().fact() + space;
         diffElements.textAreatextField().clear();
+        //Utilizei String.
         diffElements.textAreatextField().sendKeys("Test:" + space);
+        //Utilizei string com variáveis.
         diffElements.textAreatextField().sendKeys(text);
+        //Utilizei String com método.
         diffElements.textAreatextField().sendKeys(textFaker);
+        //Utilizei métodos.
         diffElements.textAreatextField().sendKeys(faker.harryPotter().spell());
         return this;
     }
@@ -163,16 +167,16 @@ public class DiffElementsStep {
         Report.log(Status.INFO, "Auto Complete");
         String email = "test@test.com";
         String emailFaker = faker.internet().emailAddress();
-        // utilizei string com variável.
+        //Utilizei string com variável.
         diffElements.autoCompleteEmailtextField().sendKeys(email);
         diffElements.autoCompleteEmailtextField().clear();
-        // utilizei variável com método de faker.
+        //Utilizei variável com método de faker.
         diffElements.autoCompleteEmailtextField().sendKeys(emailFaker);
         diffElements.autoCompleteEmailtextField().clear();
-        // utilizei string dentro método de sendkey.
+        //Utilizei string dentro método de sendkey.
         diffElements.autoCompleteEmailtextField().sendKeys("string@string.com");
         diffElements.autoCompleteEmailtextField().clear();
-        // utilizei método de faker dentro sendkey.
+        //Utilizei método de faker dentro sendkey.
         diffElements.autoCompleteEmailtextField().sendKeys(faker.internet().emailAddress());
         return this;
     }
