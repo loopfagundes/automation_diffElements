@@ -161,7 +161,27 @@ public class DiffElementsPageObject {
         return waitElement.visibilityOf(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > h1:nth-child(118)"));
     }
 
-    public WebElement brokenLinkButton() {
-        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > h1:nth-child(121) > a"));
+    public WebElement firstSameElementCheckBox() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=checkbox]:nth-child(125)"));
+    }
+
+    public WebElement secondSameElementCheckBox() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=checkbox]:nth-child(127)"));
+    }
+
+    public WebElement thirdSameElementCheckBox() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=checkbox]:nth-child(129)"));
+    }
+
+    public WebElement forthSameElementCheckBox() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=checkbox]:nth-child(131)"));
+    }
+
+    public WebElement fifthSameElementCheckBox() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=checkbox]:nth-child(133)"));
+    }
+
+    public WebElement sixthSameElementCheckBox() {
+        return waitElement.toBeClickable(By.cssSelector("#post-body-7988417473080013803 > div:nth-child(1) > center > input[type=checkbox]:nth-child(135)"));
     }
 }

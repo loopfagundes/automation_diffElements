@@ -8,7 +8,6 @@ import br.com.dbserver.utils.JavaScriptAlert;
 import br.com.dbserver.utils.JsExecutor;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -50,7 +49,7 @@ public class DiffElementsStep {
         clickToOpenNewBrowser();
         clickHoldWait();
         hiddenField();
-        brokenLink();
+        sameElement();
         return this;
     }
 
@@ -252,9 +251,14 @@ public class DiffElementsStep {
         return this;
     }
 
-    private DiffElementsStep brokenLink() {
-        Report.log(Status.INFO, "Broken Link");
-        diffElements.brokenLinkButton().click();
+    private DiffElementsStep sameElement() {
+        Report.log(Status.INFO, "Same Element");
+        diffElements.firstSameElementCheckBox().click();
+        diffElements.secondSameElementCheckBox().click();
+        diffElements.thirdSameElementCheckBox().click();
+        diffElements.forthSameElementCheckBox().click();
+        diffElements.fifthSameElementCheckBox().click();
+        diffElements.sixthSameElementCheckBox().click();
         return this;
     }
 }

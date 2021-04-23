@@ -13,7 +13,7 @@ public class DriverManager {
         _driver.set(driver);
     }
 
-    public static void closeDriver() {
+    public static void quitDriver() {
         if(getDriver() != null) {
             getDriver().quit();
         }
