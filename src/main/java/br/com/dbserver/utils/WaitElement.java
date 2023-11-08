@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class WaitElement {
     private final WebDriver driver;
 
@@ -13,12 +15,12 @@ public class WaitElement {
         driver = _driver;
     }
     public WebElement visibilityOf(By by) {
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
     public WebElement toBeClickable(By by) {
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         WebElement waitElement = visibilityOf(by);
         return wait.until(ExpectedConditions.elementToBeClickable(waitElement));
     }

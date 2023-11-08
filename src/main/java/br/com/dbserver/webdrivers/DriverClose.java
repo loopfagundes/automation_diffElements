@@ -1,7 +1,6 @@
 package br.com.dbserver.webdrivers;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.util.Iterator;
 import java.util.Set;
